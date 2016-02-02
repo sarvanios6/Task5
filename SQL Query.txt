@@ -1,0 +1,29 @@
+
+
+Assignment - 5: SQL_Query
+
+
+* CREATE DATABASE stockal;
+
+
+* CREATE TABLE employees
+ (
+ emp_id int NOT NULL,name varchar(255) NOT NULL,designation varchar(255),  email varchar(255),report_to varchar(255),PRIMARY KEY (emp_id));
+
+/*INSERT INTO employees(emp_id,name,designation,email,report_to,)VALUES(UUID(),'ram','manager','ram@gmail.com','');*/
+
+INSERT INTO employees(emp_id,name,designation,email,report_to)VALUES(1,'ram','manager','ram@gmail.com','');
+INSERT INTO employees(emp_id,name,designation,email,report_to)VALUES(2,'kumar','staff','kumar@gmail.com','1');
+INSERT INTO employees(emp_id,name,designation,email,report_to)VALUES(3,'krish','staff','krish@gmail.com','1');
+INSERT INTO employees(emp_id,name,designation,email,report_to)VALUES(4,'ramesh','staff','ramesh@gmail.com','3');
+INSERT INTO employees(emp_id,name,designation,email,report_to)VALUES(5,'raj','staff','raj@gmail.com','3');
+
+
+
+Ans:
+
+
+
+1.select * from employees where designation='staff' and report_to = (select emp_id from employees where name='krish’)
+
+2.select * from employees where designation = 'manager' and emp_id = (select report_to as emp_id FROM employees WHERE name= 'krish')
