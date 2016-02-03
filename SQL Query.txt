@@ -22,8 +22,13 @@ INSERT INTO employees(emp_id,name,designation,email,report_to)VALUES(5,'raj','st
 
 Ans:
 
+* Find the all sub ordinates for a given employees?
 
+select * from employees where designation='staff' and report_to = (select emp_id from employees where name='krish’)
 
-1.select * from employees where designation='staff' and report_to = (select emp_id from employees where name='krish’)
+(Here am going to find the sub ordinates of who's are reported to "krish")
 
-2.select * from employees where designation = 'manager' and emp_id = (select report_to as emp_id FROM employees WHERE name= 'krish')
+* Find the manager of an employee?
+
+select * from employees where designation = 'manager' and emp_id = (select report_to as emp_id FROM employees WHERE name= 'krish')
+( Here am find the who is the manager of "Krish")
